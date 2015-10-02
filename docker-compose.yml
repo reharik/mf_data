@@ -1,0 +1,25 @@
+
+postgres:
+  image: postgres
+  volumes_from:
+    - pgdata
+  environment:
+    - LANG=en_US.UTF-8
+    - POSTGRES_PASSWORD=password
+    - POSTGRES_USER=methodfitness
+  ports:
+    - 5432:5432
+eventstore:
+  build: ./containers/eventstore
+  ports:
+    - 2113:2113
+    - 1113:1113
+  volumes_from:
+    - eventstoredata
+pgdata:
+  image: postgres:latest
+  volumes:
+    - /var/lib/postgresql
+  command: echo "created postgres data container"
+eventstoredata:
+  build: ./containers/eventStoreData
