@@ -1,4 +1,3 @@
-
 postgres:
   image: postgres
   volumes_from:
@@ -23,3 +22,15 @@ pgdata:
   command: echo "created postgres data container"
 eventstoredata:
   build: ./containers/eventStoreData
+seed:
+  build: ./seedProject
+  volumes:
+    - .:/home/app/current
+  command: npm run intTest #top -b
+  links:
+    - postgres:postgres
+    - eventstore:eventstore
+  environment:
+    DEBUG: true
+    NODE_ENV: development
+    APPLICATION_NAME: seed
