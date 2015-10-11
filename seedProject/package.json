@@ -21,7 +21,7 @@
     "config": "^1.14.0",
     "extend": "^3.0.0",
     "corelogger": "git+https://github.com/reharik/core_logger.git#master",
-    "dagon": "git+https://github.com/reharik/dagon.git",
+    "dagon": "git+https://github.com/reharik/dagon.git#local",
     "eventstore": "git+https://github.com/reharik/core_eventstore.git",
     "eventdispatcher": "git+https://github.com/reharik/core_eventdispatcher.git",
     "eventmodels": "git+https://github.com/reharik/core_eventmodels.git",

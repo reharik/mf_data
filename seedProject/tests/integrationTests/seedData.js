@@ -108,6 +108,7 @@ var stateScript;
         it('should resolve with success', async ()=> {
             var script = fs.readFileSync('tests/integrationTests/sql/buildSchema.sql').toString();
             await readstorerepository.query(script);
+            console.log("read schema built");
             await eventstore.gesClientHelpers.setStreamMetadata('$all', setData, async function (error, data) {
                 if (!error) {
                     console.log("sending bootstrap");
@@ -122,10 +123,13 @@ var stateScript;
                 }
             });
             await readstorerepository.query(stateScript);
+            console.log("states inserted");
 
             await setTimeout(async function () {
                 var result = await eventdispatcher.startDispatching(handlers);
+                console.log("dispatcher started");
             }, 1000);
+
         })
     });
 });
