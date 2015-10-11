@@ -106,7 +106,7 @@ var stateScript;
 
     context('append to stream', ()=> {
         it('should resolve with success', async ()=> {
-            var script = fs.readFileSync('tests/integrationTests/sql/buildSchema.sql').toString();
+            var script = fs.readFileSync('./app/seedProject/tests/integrationTests/sql/buildSchema.sql').toString();
             await readstorerepository.query(script);
             console.log("read schema built");
             await eventstore.gesClientHelpers.setStreamMetadata('$all', setData, async function (error, data) {

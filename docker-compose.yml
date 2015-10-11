@@ -25,7 +25,7 @@ eventstoredata:
 seed:
   build: ./seedProject
   volumes:
-    - .:/home/app/current
+    - .:/home/current/app
   command: npm run intTest #top -b
   links:
     - postgres:postgres

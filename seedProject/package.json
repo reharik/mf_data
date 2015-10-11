@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "intTest": "mocha --require ./babelhook --opts ./tests/mocha.opts ./tests/integrationTests/*.js"
+    "intTest": "mocha --require ./app/seedProject/babelhook --opts ./app/seedProject/tests/mocha.opts ./app/seedProject/tests/integrationTests/*.js"
   },
   "repository": {
     "type": "git",
