@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "localTest": "mocha --require ./babelhook --opts ./tests/mocha.opts ./tests/integrationTests/*.js",
     "intTest": "mocha --require ./app/seedProject/babelhook --opts ./app/seedProject/tests/mocha.opts ./app/seedProject/tests/integrationTests/*.js"
   },
   "repository": {
@@ -21,11 +22,11 @@
     "config": "^1.14.0",
     "extend": "^3.0.0",
     "corelogger": "git+https://github.com/reharik/core_logger.git#master",
-    "dagon": "git+https://github.com/reharik/dagon.git#local",
+    "dagon": "git+https://github.com/reharik/dagon.git#newVersion",
     "eventstore": "git+https://github.com/reharik/core_eventstore.git",
-    "eventdispatcher": "git+https://github.com/reharik/core_eventdispatcher.git",
-    "eventmodels": "git+https://github.com/reharik/core_eventmodels.git",
-    "readstorerepository": "git+https://github.com/reharik/core_readStoreRepository.git",
+    "eventdispatcher": "git+https://github.com/reharik/core_eventdispatcher.git#functional",
+    "eventmodels": "git+https://github.com/reharik/core_eventmodels.git#functional",
+    "readstorerepository": "git+https://github.com/reharik/core_readStoreRepository.git#functional",
     "uuid": "^2.0.1"
   },
   "devDependencies": {

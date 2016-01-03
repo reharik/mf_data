@@ -23,29 +23,33 @@ describe('appendToStreamPromiseTester', function() {
     var setData;
     var readstorerepository;
     var eventdispatcher;
-var stateScript;
-    before(async function () {
+    var stateScript;
+    before(async function() {
         extend(options, config.get('configs') || {});
-        container = require('../../registry')(options);
-        var eventmodels = container.getInstanceOf('eventmodels');
-        eventdata = eventmodels.eventData;
-        eventstore = container.getInstanceOf('eventstore');
-        uuid = container.getInstanceOf('uuid');
-        handlers = container.getArrayOfGroup('CommandHandlers');
+        console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
+        container           = require('../../registry')(options);
+        console.log('containerzzzzzzzzzzzzzzzzzzz')
+        console.log(container)
+        var eventmodels     = container.getInstanceOf('eventmodels');
+        eventdata           = eventmodels.eventData;
+        eventstore          = container.getInstanceOf('eventstore');
+        uuid                = container.getInstanceOf('uuid');
+        handlers            = container.getArrayOfGroup('CommandHandlers');
         readstorerepository = container.getInstanceOf('readstorerepository');
-        eventdispatcher = container.getInstanceOf('eventdispatcher');
-        var auth = {
-            username: eventstore.gesClientHelpers.systemUsers.admin
-            , password: eventstore.gesClientHelpers.systemUsers.defaultAdminPassword
+        eventdispatcher     = container.getInstanceOf('eventdispatcher');
+        var auth            = {
+            username: eventstore.gesClientHelpers.systemUsers.admin,
+            password: eventstore.gesClientHelpers.systemUsers.defaultAdminPassword
         };
-        setData = {
-            expectedMetastreamVersion: -1
-            , metadata: eventstore.gesClientHelpers.createStreamMetadata({
-                acl: {
-                    readRoles: eventstore.gesClientHelpers.systemRoles.all
-                }
-            })
-            , auth: auth
+        var metadata = eventstore.gesClientHelpers.createStreamMetadata({
+            acl: {
+                readRoles: eventstore.gesClientHelpers.systemRoles.all
+            }
+        });
+        setData             = {
+            expectedMetastreamVersion: -1,
+            metadata                 : metadata,
+            auth                     : auth
         };
 
         stateScript =
@@ -109,23 +113,25 @@ var stateScript;
             var script = fs.readFileSync('./app/seedProject/tests/integrationTests/sql/buildSchema.sql').toString();
             await readstorerepository.query(script);
             console.log("read schema built");
-            await eventstore.gesClientHelpers.setStreamMetadata('$all', setData, async function (error, data) {
+            await eventstore.gesClientHelpers.setStreamMetadata('$all', setData, async function(error, data) {
                 if (!error) {
                     console.log("sending bootstrap");
-                    var appendData = {expectedVersion: -2};
-                    appendData.events = [eventdata('bootstrapApplication',
-                        {data: 'bootstrap please'},
-                        {
-                            commandTypeName: 'bootstrapApplication',
-                            streamType: 'command'
-                        })];
+                    var appendData    = {expectedVersion: -2};
+                    appendData.events = [
+                        eventdata('bootstrapApplication',
+                            {data: 'bootstrap please'},
+                            {
+                                commandTypeName: 'bootstrapApplication',
+                                streamType     : 'command'
+                            })
+                    ];
                     await eventstore.appendToStreamPromise('bootstrapApplication', appendData);
                 }
             });
             await readstorerepository.query(stateScript);
             console.log("states inserted");
 
-            await setTimeout(async function () {
+            await setTimeout(async function() {
                 var result = await eventdispatcher.startDispatching(handlers);
                 console.log("dispatcher started");
             }, 1000);
