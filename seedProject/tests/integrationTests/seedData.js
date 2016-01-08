@@ -26,10 +26,7 @@ describe('appendToStreamPromiseTester', function() {
     var stateScript;
     before(async function() {
         extend(options, config.get('configs') || {});
-        console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
-        container           = require('../../registry')(options);
-        console.log('containerzzzzzzzzzzzzzzzzzzz')
-        console.log(container)
+        container           = require('../../../registry')(options);
         var eventmodels     = container.getInstanceOf('eventmodels');
         eventdata           = eventmodels.eventData;
         eventstore          = container.getInstanceOf('eventstore');
