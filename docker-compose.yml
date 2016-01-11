@@ -12,8 +12,8 @@ eventstore:
 seed:
   build: .
   volumes:
-    - .:/home/current/app
-  command: npm start #top -b
+    - ./app:/home/current/app
+  command: npm start #top -b#
   links:
     - postgres
     - eventstore

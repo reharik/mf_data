@@ -13,4 +13,4 @@ RUN npm install --silent
 
 WORKDIR $PLUGIN_HOME
 
-ADD . $PLUGIN_HOME/app
+ADD ./app $PLUGIN_HOME/app

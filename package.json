@@ -20,13 +20,14 @@
   "homepage": "https://github.com/reharik/mf_data",
   "dependencies": {
     "JSON": "^1.0.0",
+    "bluebird": "^3.1.1",
     "config": "^1.14.0",
-    "extend": "^3.0.0",
     "corelogger": "git+https://github.com/reharik/core_logger.git#master",
     "dagon": "git+https://github.com/reharik/dagon.git#newVersion",
-    "eventstore": "git+https://github.com/reharik/core_eventstore.git",
     "eventdispatcher": "git+https://github.com/reharik/core_eventdispatcher.git#functional",
     "eventmodels": "git+https://github.com/reharik/core_eventmodels.git#functional",
+    "eventstore": "git+https://github.com/reharik/core_eventstore.git",
+    "extend": "^3.0.0",
     "readstorerepository": "git+https://github.com/reharik/core_readStoreRepository.git#functional",
     "uuid": "^2.0.1"
   },
@@ -38,3 +39,4 @@
     "must": "^0.12.0"
   }
 }
+

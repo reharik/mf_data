@@ -13,6 +13,6 @@ docker-build:
 	docker build -t $(NAME) .
 
 run:	docker-build
-	docker-compose up
-
+#	docker-compose up seed
+	docker-compose run --service-ports seed
 .PHONY: clean install docker-build run
