@@ -28,7 +28,7 @@ module.exports = function(_options) {
             .instantiate('gesConnection').asFunc().withParameters(options.children || {})
 
             .instantiate('eventdispatcher').asFunc().withParameters(options.children || {})
-                .instantiate('readstorerepository').asFunc().withParameters(options.children || {})
+                    .instantiate('readstorerepository').asFunc().withParameters(options.children || {})
                     .instantiate('logger').asFunc().withParameters(options.logger || {})
                     .complete());
     } catch (ex) {
