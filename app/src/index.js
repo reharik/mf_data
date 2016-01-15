@@ -137,10 +137,10 @@ module.exports = function(_options) {
     eventstore          = container.getInstanceOf('eventstore');
     handlers            = container.getArrayOfGroup('CommandHandlers');
     readstorerepository = container.getInstanceOf('readstorerepository');
-    eventdispatcher     = container.getInstanceOf('eventdispatcher');
+    //eventdispatcher     = container.getInstanceOf('eventdispatcher');
 
     console.log('step0');
-    buildPGSchema()
+    return buildPGSchema()
         .then(sendMetadata)
         .then(sendBootstrap)
         .then(populatePG)

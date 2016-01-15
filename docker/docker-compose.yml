@@ -1,3 +1,15 @@
+seed:
+  image: mfdata/seedproject
+  volumes:
+    - ./../app:/home/current/app
+  command: npm start #top -b#
+  links:
+    - postgres
+    - eventstore
+  environment:
+    DEBUG: true
+    NODE_ENV: development
+    APPLICATION_NAME: seed
 postgres:
   image: postgres
   environment:
@@ -9,15 +21,3 @@ postgres:
 eventstore:
   image: adbrowne/eventstore
   command: ./run-node.sh --ext-http-prefixes=http://*:2113/ --ext-ip=0.0.0.0 --db /data/db --log /data/logs --stats-period-sec=300 --run-projections=all
-seed:
-  build: .
-  volumes:
-    - ./app:/home/current/app
-  command: npm start #top -b#
-  links:
-    - postgres
-    - eventstore
-  environment:
-    DEBUG: true
-    NODE_ENV: development
-    APPLICATION_NAME: seed

@@ -10,9 +10,9 @@ install:
 	npm install --silent
 
 docker-build:
-	docker build -t $(NAME) .
+	docker build -t $(NAME) -f docker/Dockerfile .
 
 run:	docker-build
-#	docker-compose up seed
-	docker-compose run --service-ports seed
+	docker-compose -f docker/docker-compose.yml run --service-ports --rm seed
+
 .PHONY: clean install docker-build run
