@@ -22,13 +22,13 @@
     "JSON": "^1.0.0",
     "bluebird": "^3.1.1",
     "config": "^1.14.0",
-    "corelogger": "git+https://github.com/reharik/core_logger.git#master",
+    "corelogger": "git+https://github.com/reharik/core_logger.git",
     "dagon": "git+https://github.com/reharik/dagon.git",
-    "eventdispatcher": "git+https://github.com/reharik/core_eventdispatcher.git#functional",
-    "eventmodels": "git+https://github.com/reharik/core_eventmodels.git#functional",
+    "eventdispatcher": "git+https://github.com/reharik/core_eventdispatcher.git",
+    "appfuncs": "git+https://github.com/reharik/core_applicationFunctions.get",
     "eventstore": "git+https://github.com/reharik/core_eventstore.git",
     "extend": "^3.0.0",
-    "readstorerepository": "git+https://github.com/reharik/core_readStoreRepository.git#functional",
+    "readstorerepository": "git+https://github.com/reharik/core_readStoreRepository.git",
     "uuid": "^2.0.1"
   },
   "devDependencies": {

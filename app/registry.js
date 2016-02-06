@@ -20,7 +20,7 @@ module.exports = function(_options) {
                     .for('bluebird').renameTo('Promise')
                     .for('eventstore').replaceWith('eventstorePlugin')
                     .for('readstorerepository').replaceWith('rsRepositoryPlugin')
-                    .for('eventmodels').replaceWith('eventModelsPlugin')
+                    .for('appfuncs').replaceWith('applicationFunctionsPlugin')
                     .for('eventdispatcher').replaceWith('eventDispatcherPlugin')
                     .complete(),
                 x=>x

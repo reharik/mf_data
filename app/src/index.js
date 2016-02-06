@@ -7,8 +7,7 @@ var fs = require('fs');
 var registry = require('./../registry');
 var Promise = require('bluebird');
 var uuid = require('uuid');
-var eventmodels;
-var eventdata;
+var ef;
 var eventstore;
 var handlers;
 var readstorerepository;
@@ -117,14 +116,16 @@ var sendMetadata = function(val) {
 var sendBootstrap = function(error) {
     console.log('step4');
     console.log("sending bootstrap");
-    var appendData    = {expectedVersion: -2};
+    var appendData    = { expectedVersion: -2 };
     appendData.events = [
-        eventdata('bootstrapApplication',
-            {data: 'bootstrap please'},
-            {
+        ef.outGoingEvent({
+            eventName: 'bootstrapApplication',
+            date     : { message: 'bootstrap please' },
+            metadata : {
                 commandTypeName: 'bootstrapApplication',
                 streamType     : 'command'
-            })
+            }
+        })
     ];
     return eventstore.appendToStreamPromise('bootstrapApplication', appendData);
 };
@@ -132,8 +133,8 @@ var sendBootstrap = function(error) {
 module.exports = function(_options) {
     var options         = extend(_options, config.get('configs') || {});
     var container       = registry(options);
-    var eventmodels     = container.getInstanceOf('eventmodels');
-    eventdata           = eventmodels.eventData;
+    var appfuncs     = container.getInstanceOf('appfuncs');
+    ef           = appfuncs.eventFunctions;
     eventstore          = container.getInstanceOf('eventstore');
     handlers            = container.getArrayOfGroup('CommandHandlers');
     readstorerepository = container.getInstanceOf('readstorerepository');
