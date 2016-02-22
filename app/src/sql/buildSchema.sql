@@ -83,3 +83,18 @@ WITH (
 );
 ALTER TABLE "trainerSummary"
   OWNER TO methodfitness;
+
+-- Table: "trainerSummary"
+
+DROP TABLE IF EXISTS "user";
+
+CREATE TABLE "user"
+(
+  id uuid NOT NULL,
+  document jsonb
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE "user"
+  OWNER TO methodfitness;

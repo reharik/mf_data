@@ -25,7 +25,7 @@
     "corelogger": "git+https://github.com/reharik/core_logger.git",
     "dagon": "git+https://github.com/reharik/dagon.git",
     "eventdispatcher": "git+https://github.com/reharik/core_eventdispatcher.git",
-    "appfuncs": "git+https://github.com/reharik/core_applicationFunctions.get",
+    "appfuncs": "git+https://github.com/reharik/core_applicationFunctions.git",
     "eventstore": "git+https://github.com/reharik/core_eventstore.git",
     "extend": "^3.0.0",
     "readstorerepository": "git+https://github.com/reharik/core_readStoreRepository.git",

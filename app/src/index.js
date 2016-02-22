@@ -120,13 +120,16 @@ var sendBootstrap = function(error) {
     appendData.events = [
         ef.outGoingEvent({
             eventName: 'bootstrapApplication',
-            date     : { message: 'bootstrap please' },
+            data     : { message: 'bootstrap please' },
             metadata : {
                 commandTypeName: 'bootstrapApplication',
                 streamType     : 'command'
             }
         })
     ];
+    console.log('==========appendData.events=========');
+    console.log(appendData.events);
+    console.log('==========ENDappendData.events=========');
     return eventstore.appendToStreamPromise('bootstrapApplication', appendData);
 };
 
