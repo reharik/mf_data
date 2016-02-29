@@ -122,15 +122,12 @@ var sendBootstrap = function(error) {
             eventName: 'bootstrapApplication',
             data     : { message: 'bootstrap please' },
             metadata : {
-                continuationId : uuid.v4();
+                continuationId : uuid.v4(),
                 commandTypeName: 'bootstrapApplication',
                 streamType     : 'command'
             }
         })
     ];
-    console.log('==========appendData.events=========');
-    console.log(appendData.events);
-    console.log('==========ENDappendData.events=========');
     return eventstore.appendToStreamPromise('bootstrapApplication', appendData);
 };
 
