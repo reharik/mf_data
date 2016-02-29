@@ -122,6 +122,7 @@ var sendBootstrap = function(error) {
             eventName: 'bootstrapApplication',
             data     : { message: 'bootstrap please' },
             metadata : {
+                continuationId : uuid.v4();
                 commandTypeName: 'bootstrapApplication',
                 streamType     : 'command'
             }
@@ -141,7 +142,7 @@ module.exports = function(_options) {
     eventstore          = container.getInstanceOf('eventstore');
     handlers            = container.getArrayOfGroup('CommandHandlers');
     readstorerepository = container.getInstanceOf('readstorerepository');
-    //eventdispatcher     = container.getInstanceOf('eventdispatcher');
+        //eventdispatcher     = container.getInstanceOf('eventdispatcher');
 
     console.log('step0');
     return buildPGSchema()
