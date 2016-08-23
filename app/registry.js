@@ -14,20 +14,17 @@ module.exports = function(_options) {
         result = container(
                 x=> x.pathToRoot(__dirname+'/../')
                 .for('corelogger').renameTo('logger')
-                    .requiredModuleRegistires(['eventstore','readstorerepository','eventdispatcher'])
+                    .requiredModuleRegistires(['ges-eventsourcing'])
                     .for('ramda').renameTo('R')
                     .for('ramdafantasy').renameTo('_fantasy')
                     .for('bluebird').renameTo('Promise')
-                    .for('eventstore').replaceWith('eventstorePlugin')
-                    .for('readstorerepository').replaceWith('rsRepositoryPlugin')
-                    .for('appfuncs').replaceWith('applicationFunctionsPlugin')
-                    .for('eventdispatcher').replaceWith('eventDispatcherPlugin')
+                    .for('applicationFunctions').renameTo('appfuncs')
                     .complete(),
                 x=>x
                     .instantiate('eventstore').asFunc().withParameters(options.children || {})
                     .instantiate('gesConnection').asFunc().withParameters(options.children || {})
-                    .instantiate('eventdispatcher').asFunc().withParameters(options.children || {})
-                    .instantiate('readstorerepository').asFunc().withParameters(options.children || {})
+                    .instantiate('eventDispatcher').asFunc().withParameters(options.children || {})
+                    .instantiate('rsRepository').asFunc().withParameters(options.children || {})
                     .instantiate('logger').asFunc().withParameters(options.logger || {})
                     .complete());
     } catch (ex) {

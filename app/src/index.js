@@ -10,8 +10,8 @@ var uuid = require('uuid');
 var ef;
 var eventstore;
 var handlers;
-var readstorerepository;
-var eventdispatcher;
+var rsRepository;
+var eventDispatcher;
 
 
 
@@ -37,7 +37,7 @@ var buildPGSchema = function() {
     console.log('step2');
     var script = fs.readFileSync(__dirname + '/sql/buildSchema.sql').toString();
     return new Promise(function(resolve, reject) {
-        readstorerepository.query(script).fork(reject,resolve)
+        rsRepository.query(script).fork(reject,resolve)
     })
 };
 
@@ -97,7 +97,7 @@ var populatePG = function() {
             "commit;";
 
     return new Promise(function(resolve, reject) {
-        readstorerepository.query(stateScript).fork(reject, resolve)
+        rsRepository.query(stateScript).fork(reject, resolve)
     })
 };
 
@@ -138,7 +138,7 @@ module.exports = function(_options) {
     ef           = appfuncs.eventFunctions;
     eventstore          = container.getInstanceOf('eventstore');
     handlers            = container.getArrayOfGroup('CommandHandlers');
-    readstorerepository = container.getInstanceOf('readstorerepository');
+    rsRepository = container.getInstanceOf('rsRepository');
         //eventdispatcher     = container.getInstanceOf('eventdispatcher');
 
     console.log('step0');
