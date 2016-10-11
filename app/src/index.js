@@ -131,6 +131,16 @@ var sendBootstrap = function(error) {
     return eventstore.appendToStreamPromise('bootstrapApplication', appendData);
 };
 
+var start = function(){
+    return buildPGSchema()
+        .then(sendMetadata)
+        .then(sendBootstrap)
+        .then(populatePG)
+        .catch(function(err) {
+            console.log(err);
+        });
+};
+
 module.exports = function(_options) {
     var options         = extend(_options, config.get('configs') || {});
     var container       = registry(options);
@@ -142,11 +152,12 @@ module.exports = function(_options) {
         //eventdispatcher     = container.getInstanceOf('eventdispatcher');
 
     console.log('step0');
-    return buildPGSchema()
-        .then(sendMetadata)
-        .then(sendBootstrap)
-        .then(populatePG)
-        .catch(function(err) {
-            console.log(err);
-        });
+
+//horrible @#$@## hack
+    console.log('=========="running data"=========');
+    console.log("running data");
+    console.log('==========END "running data"=========');
+    setTimeout( start, 5000);
+
+
 }();
