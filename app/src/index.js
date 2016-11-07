@@ -134,7 +134,7 @@ var sendBootstrap = function(error) {
 var start = function(){
     return buildPGSchema()
         .then(sendMetadata)
-        .then(sendBootstrap)
+        // .then(sendBootstrap)
         .then(populatePG)
         .catch(function(err) {
             console.log(err);

@@ -6,7 +6,7 @@
   "scripts": {
     "localTest": "mocha --require ./babelhook --opts ./tests/mocha.opts ./tests/integrationTests/*.js",
     "intTest": "mocha --require ./app/seedProject/babelhook --opts ./app/seedProject/tests/mocha.opts ./app/seedProject/tests/integrationTests/*.js",
-    "start": "node app/src/index.js"
+    "start": "node --harmony-async-await app/src/index.js"
   },
   "repository": {
     "type": "git",
