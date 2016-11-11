@@ -1,4 +1,4 @@
-NAME=mf_data/seedproject
+NAME=mf_data
 VERSION=$$(git rev-parse --short HEAD)
 NODE_ENV=qa
 
