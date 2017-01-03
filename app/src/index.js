@@ -134,7 +134,7 @@ var sendBootstrap = function(error) {
 var start = function(){
     return buildPGSchema()
         .then(sendMetadata)
-        // .then(sendBootstrap)
+        .then(sendBootstrap)
         .then(populatePG)
         .catch(function(err) {
             console.log(err);
@@ -157,7 +157,7 @@ module.exports = function(_options) {
     console.log('=========="running data"=========');
     console.log("running data");
     console.log('==========END "running data"=========');
-    setTimeout( start, 5000);
+    // setTimeout( start, 5000);
 
 
 }();

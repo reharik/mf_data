@@ -54,6 +54,21 @@ WITH (
 ALTER TABLE trainer
   OWNER TO methodfitness;
 
+-- Table: client
+
+DROP TABLE IF EXISTS client;
+
+CREATE TABLE client
+(
+  id uuid NOT NULL,
+  document jsonb
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE client
+  OWNER TO methodfitness;
+
 -- Table: "trainerLoggedIn"
 
 DROP TABLE IF EXISTS "trainerLoggedIn";
