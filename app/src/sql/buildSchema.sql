@@ -113,3 +113,21 @@ WITH (
 );
 ALTER TABLE "user"
   OWNER TO methodfitness;
+
+-- Table: trainer
+
+DROP TABLE IF EXISTS appointment;
+
+CREATE TABLE appointment
+(
+  id uuid NOT NULL,
+  date timestamp NOT NULL,
+  trainer uuid NOT NULL,
+  document jsonb
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE trainer
+  OWNER TO methodfitness;
+

@@ -153,11 +153,7 @@ module.exports = function(_options) {
 
     console.log('step0');
 
-//horrible @#$@## hack
-    console.log('=========="running data"=========');
-    console.log("running data");
-    console.log('==========END "running data"=========');
-    // setTimeout( start, 5000);
+    start();
 
 
 }();
