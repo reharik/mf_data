@@ -99,7 +99,7 @@ WITH (
 ALTER TABLE "trainerSummary"
   OWNER TO methodfitness;
 
--- Table: "trainerSummary"
+-- Table: "user"
 
 DROP TABLE IF EXISTS "user";
 
@@ -112,4 +112,21 @@ WITH (
   OIDS=FALSE
 );
 ALTER TABLE "user"
+  OWNER TO methodfitness;
+
+-- Table: "appointment"
+
+DROP TABLE IF EXISTS "appointment";
+
+CREATE TABLE "appointment"
+(
+  id uuid NOT NULL,
+  trainer uuid NOT NULL,
+  date timestamp NOT NULL,
+  document jsonb
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE "appointment"
   OWNER TO methodfitness;
