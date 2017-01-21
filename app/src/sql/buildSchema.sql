@@ -122,7 +122,7 @@ CREATE TABLE "appointment"
 (
   id uuid NOT NULL,
   trainer uuid NOT NULL,
-  date timestamp NOT NULL,
+  date date NOT NULL,
   document jsonb
 )
 WITH (
