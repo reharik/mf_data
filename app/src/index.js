@@ -135,7 +135,10 @@ var start = function(){
     return buildPGSchema()
         .then(sendMetadata)
         .then(sendBootstrap)
-        .then(populatePG)
+        .then((x) => {
+          populatePG();
+          console.log('data complete')
+        })
         .catch(function(err) {
             console.log(err);
         });
