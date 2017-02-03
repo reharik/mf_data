@@ -9,7 +9,6 @@ COMMENT ON SCHEMA public
 
 -- Table: "lastProcessedPosition"
 
-DROP TABLE IF EXISTS "lastProcessedPosition";
 
 CREATE TABLE "lastProcessedPosition"
 (
@@ -26,7 +25,6 @@ ALTER TABLE "lastProcessedPosition"
 
 -- Table: states
 
-DROP TABLE IF EXISTS states;
 
 CREATE TABLE states
 (
@@ -41,7 +39,6 @@ ALTER TABLE states
 
 -- Table: trainer
 
-DROP TABLE IF EXISTS trainer;
 
 CREATE TABLE trainer
 (
@@ -56,7 +53,6 @@ ALTER TABLE trainer
 
 -- Table: client
 
-DROP TABLE IF EXISTS client;
 
 CREATE TABLE client
 (
@@ -71,7 +67,6 @@ ALTER TABLE client
 
 -- Table: "trainerLoggedIn"
 
-DROP TABLE IF EXISTS "trainerLoggedIn";
 
 CREATE TABLE "trainerLoggedIn"
 (
@@ -86,7 +81,6 @@ ALTER TABLE "trainerLoggedIn"
 
 -- Table: "trainerSummary"
 
-DROP TABLE IF EXISTS "trainerSummary";
 
 CREATE TABLE "trainerSummary"
 (
@@ -101,7 +95,6 @@ ALTER TABLE "trainerSummary"
 
 -- Table: "user"
 
-DROP TABLE IF EXISTS "user";
 
 CREATE TABLE "user"
 (
@@ -116,7 +109,6 @@ ALTER TABLE "user"
 
 -- Table: "appointment"
 
-DROP TABLE IF EXISTS "appointment";
 
 CREATE TABLE "appointment"
 (

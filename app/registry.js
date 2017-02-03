@@ -14,7 +14,8 @@ module.exports = function(_options) {
         result = container(
                 x=> x.pathToRoot(__dirname+'/../')
                 .for('corelogger').renameTo('logger')
-                    .requiredModuleRegistires(['ges-eventsourcing'])
+                  .requireDirectoryRecursively('./app/src')
+                  .requiredModuleRegistires(['ges-eventsourcing', 'messagebinders'])
                     .for('ramda').renameTo('R')
                     .for('ramdafantasy').renameTo('_fantasy')
                     .for('bluebird').renameTo('Promise')
