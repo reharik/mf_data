@@ -39,22 +39,6 @@ ALTER TABLE states
 
 -- Table: trainer
 
-DROP TABLE IF EXISTS client;
-
-CREATE TABLE client
-(
-  id uuid NOT NULL,
-  document jsonb
-)
-WITH (
-  OIDS=FALSE
-);
-ALTER TABLE client
-  OWNER TO methodfitness;
-
--- Table: trainer
-
-
 CREATE TABLE trainer
 (
   id uuid NOT NULL,
