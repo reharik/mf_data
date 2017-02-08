@@ -14,7 +14,8 @@ module.exports = function(_options) {
         result = container(
                 x=> x.pathToRoot(__dirname+'/../')
                 .for('corelogger').renameTo('logger')
-                    .requiredModuleRegistires(['ges-eventsourcing'])
+                  .requireDirectoryRecursively('./app/src')
+                  .requiredModuleRegistires(['ges-eventsourcing', 'messagebinders'])
                     .for('ramda').renameTo('R')
                     .for('ramdafantasy').renameTo('_fantasy')
                     .for('bluebird').renameTo('Promise')
@@ -24,7 +25,7 @@ module.exports = function(_options) {
                     .instantiate('eventstore').asFunc().withParameters(options.children || {})
                     .instantiate('gesConnection').asFunc().withParameters(options.children || {})
                     .instantiate('eventDispatcher').asFunc().withParameters(options.children || {})
-                    .instantiate('rsRepository').asFunc().withParameters(options.children || {})
+                    .instantiate('pgFuture').asFunc().withParameters(options.children || {})
                     .instantiate('logger').asFunc().withParameters(options.logger || {})
                     .complete());
     } catch (ex) {
