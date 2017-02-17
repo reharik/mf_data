@@ -73,15 +73,8 @@ module.exports = function(config,
       const trainers = hireTrainers();
       trainers[1].clients = [clients[0].id,clients[1].id,clients[2].id];
       trainers[2].clients = [clients[2].id,clients[3].id,clients[4].id];
-      console.log('==========trainers=========');
-      console.log(trainers);
-      console.log('==========END trainers=========');
 
       for (let x of trainers) {
-        console.log('==========x=========');
-        console.log(x);
-        console.log('==========END x=========');
-
         await processCommands(x, 'hireTrainer');
       }
     };
@@ -259,7 +252,7 @@ module.exports = function(config,
             zipCode: '02403'
           }
         },
-        source: 'walkDriveBy',
+        source: 'driveWalkBy',
         startDate: new Date('1/1/2016'),
         sourceNotes: 'Google',
         birthDate: new Date('1/1/1980'),
