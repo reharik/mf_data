@@ -121,7 +121,7 @@ module.exports = function(config,
           }
         },
         credentials: {
-          password: createPassword('123123'),
+          password: createPassword('345345'),
           role: 'admin'
         }
       };
@@ -144,7 +144,7 @@ module.exports = function(config,
             zipCode: '02906'          }
         },
         credentials: {
-          password: createPassword('123123'),
+          password: createPassword('234234'),
           role: 'trainer'
         }
       };
