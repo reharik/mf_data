@@ -109,7 +109,7 @@ module.exports = function(config,
         contact: {
           firstName: 'Someone',
           lastName: 'Else',
-          email: 'admin',
+          email: 'admin2',
           mobilePhone: '666.666.6666',
           secondaryPhone: '777.777.7777',
           address: {
@@ -133,7 +133,7 @@ module.exports = function(config,
         contact: {
           firstName: 'Amahl',
           lastName: 'Harik',
-          email: 'admin',
+          email: 'trainer',
           mobilePhone: '666.666.6666',
           secondaryPhone: '777.777.7777',
           address: {

@@ -42,7 +42,7 @@ ALTER TABLE states
 CREATE TABLE trainer
 (
   id uuid NOT NULL,
-  archived bit,
+  archived boolean DEFAULT false,
   document jsonb
 )
 WITH (
@@ -57,7 +57,7 @@ ALTER TABLE trainer
 CREATE TABLE client
 (
   id uuid NOT NULL,
-  archived bit,
+  archived boolean DEFAULT false,
   document jsonb
 )
 WITH (
@@ -100,7 +100,7 @@ ALTER TABLE "trainerSummary"
 CREATE TABLE "user"
 (
   id uuid NOT NULL,
-  archived bit,
+  archived boolean DEFAULT false,
   document jsonb
 )
 WITH (
