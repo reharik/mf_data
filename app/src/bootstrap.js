@@ -264,11 +264,11 @@ module.exports = function(config,
 
     const begin = async function () {
       await migration();
-      console.log('step0');
-      await sendMetadata();
-      console.log('step3');
-      await populateES();
-
+      // console.log('step0');
+      // await sendMetadata();
+      // console.log('step3');
+      // await populateES();
+return;
     };
 
     begin();

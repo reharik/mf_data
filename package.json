@@ -31,6 +31,7 @@
     "ges-eventsourcing": "reharik/ges-eventsourcing.git",
     "messagebinders": "git://github.com/reharik/mf_messagebinders.git",
     "pg-async": "^2.4.0",
+    "promise-retry": "^1.1.1",
     "uuid": "^2.0.1"
   },
   "devDependencies": {
