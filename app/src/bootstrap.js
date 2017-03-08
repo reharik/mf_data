@@ -20,40 +20,40 @@ module.exports = function(config,
       }
     };
 
-    var setupMetaData = function () {
-      console.log('step1');
-      var auth = {
-        username: eventstore.gesClientHelpers.systemUsers.admin,
-        password: eventstore.gesClientHelpers.systemUsers.defaultAdminPassword
-      };
-      var metadata = eventstore.gesClientHelpers.createStreamMetadata({
-        acl: {
-          readRoles: eventstore.gesClientHelpers.systemRoles.all
-        }
-      });
-      return {
-        expectedMetastreamVersion: -2,
-        metadata: metadata,
-        auth: auth
-      };
-    };
+    // var setupMetaData = function () {
+    //   console.log('step1');
+    //   var auth = {
+    //     username: eventstore.gesClientHelpers.systemUsers.admin,
+    //     password: eventstore.gesClientHelpers.systemUsers.defaultAdminPassword
+    //   };
+    //   var metadata = eventstore.gesClientHelpers.createStreamMetadata({
+    //     acl: {
+    //       readRoles: eventstore.gesClientHelpers.systemRoles.all
+    //     }
+    //   });
+    //   return {
+    //     expectedMetastreamVersion: -2,
+    //     metadata: metadata,
+    //     auth: auth
+    //   };
+    // };
 
-    var sendMetadata = function (val) {
-      var setData = setupMetaData();
-      console.log('step2');
-      return new Promise(function (resolve, reject) {
-        setTimeout(function() {
-        eventstore.gesClientHelpers.setStreamMetadata('$all', setData, function (error, data) {
-          if(error){
-            reject(error);
-          }
-          else {
-            resolve(data);
-          }
-        });
-        }, 1000)
-      });
-    };
+    // var sendMetadata = function (val) {
+    //   var setData = setupMetaData();
+    //   console.log('step2');
+    //   return new Promise(function (resolve, reject) {
+    //     setTimeout(function() {
+    //     eventstore.gesClientHelpers.setStreamMetadata('$all', setData, function (error, data) {
+    //       if(error){
+    //         reject(error);
+    //       }
+    //       else {
+    //         resolve(data);
+    //       }
+    //     });
+    //     }, 1000)
+    //   });
+    // };
 
     var processCommands = async function (x, commandName) {
       const command = messageBinders.commands[commandName + 'Command'](x);
