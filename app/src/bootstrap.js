@@ -266,8 +266,8 @@ module.exports = function(config,
       await migration();
       // console.log('step0');
       // await sendMetadata();
-      // console.log('step3');
-      // await populateES();
+      console.log('step3');
+      await populateES();
 return;
     };
 

@@ -1505,7 +1505,7 @@ lru-cache@2:
 
 messagebinders@reharik/mf_messagebinders#eventstore_node:
   version "1.0.0"
-  resolved "https://codeload.github.com/reharik/mf_messagebinders/tar.gz/309c00664ec072288507c2c036fc5ee1c9182f04"
+  resolved "https://codeload.github.com/reharik/mf_messagebinders/tar.gz/c13902ffab5cc383880a5cbb364b7d0b2effe019"
   dependencies:
     corelogger reharik/core_logger
     dagon reharik/dagon
