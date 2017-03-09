@@ -22,7 +22,7 @@ module.exports = function(_options) {
                     .for('applicationFunctions').renameTo('appfuncs')
                     .complete(),
                 x=>x
-                    // .instantiate('eventstore').asFunc().withParameters(options.children || {})
+                    .instantiate('eventstore').asFunc().withParameters(options.children || {})
                     // .instantiate('gesConnection').asFunc().withParameters(options.children || {})
                     // .instantiate('eventDispatcher').asFunc().withParameters(options.children || {})
                     .instantiate('pgFuture').asFunc().withParameters(options.children || {})
