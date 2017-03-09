@@ -1134,7 +1134,7 @@ generic-pool@2.4.2:
 
 ges-eventsourcing@reharik/ges-eventsourcing#eventstore_node:
   version "0.0.1"
-  resolved "https://codeload.github.com/reharik/ges-eventsourcing/tar.gz/2135cb2454636278d408cc506e44ed1163a67283"
+  resolved "https://codeload.github.com/reharik/ges-eventsourcing/tar.gz/cd4ca543b8d2596d7d8682b50e4afbd3b5612bda"
   dependencies:
     JSON "^1.0.0"
     bluebird "^3.4.1"
@@ -1491,7 +1491,7 @@ lru-cache@2:
 
 messagebinders@reharik/mf_messagebinders#eventstore_node:
   version "1.0.0"
-  resolved "https://codeload.github.com/reharik/mf_messagebinders/tar.gz/bf2eb3eb16b930153c674311b7d9d8011c6548b4"
+  resolved "https://codeload.github.com/reharik/mf_messagebinders/tar.gz/1d476373ae5678388fb1fd6a6a69fe750c12964b"
   dependencies:
     corelogger reharik/core_logger
     dagon reharik/dagon
