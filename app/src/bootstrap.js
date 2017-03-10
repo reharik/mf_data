@@ -58,7 +58,7 @@ module.exports = function(config,
     var processCommands = async function (x, commandName) {
       const command = messageBinders.commands[commandName + 'Command'](x);
 
-      await messageBinders.commandPoster(
+      await eventstore.commandPoster(
         command,
         commandName,
         uuid.v4());

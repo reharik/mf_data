@@ -842,7 +842,7 @@ core-util-is@~1.0.0:
 
 corelogger@reharik/core_logger:
   version "0.0.1"
-  resolved "https://codeload.github.com/reharik/core_logger/tar.gz/2d758bd2edf074ae7d34939efba1656da29b2631"
+  resolved "https://codeload.github.com/reharik/core_logger/tar.gz/a369c51b4479532a9432950da51ffefee9a91ef4"
   dependencies:
     moment "^2.17.1"
     os "^0.1.1"
@@ -1134,7 +1134,7 @@ generic-pool@2.4.2:
 
 ges-eventsourcing@reharik/ges-eventsourcing#eventstore_node:
   version "0.0.1"
-  resolved "https://codeload.github.com/reharik/ges-eventsourcing/tar.gz/c7101caf5c8640a0630c4b69e98398c434db9611"
+  resolved "https://codeload.github.com/reharik/ges-eventsourcing/tar.gz/0bd6a98c358d85b950641e4a7a91be59e544ff28"
   dependencies:
     JSON "^1.0.0"
     bluebird "^3.4.1"
@@ -1491,13 +1491,11 @@ lru-cache@2:
 
 messagebinders@reharik/mf_messagebinders#eventstore_node:
   version "1.0.0"
-  resolved "https://codeload.github.com/reharik/mf_messagebinders/tar.gz/d22c7c8c97e5d93bdce199f47061ef734d9875d2"
+  resolved "https://codeload.github.com/reharik/mf_messagebinders/tar.gz/fe17a26aa41c8359ac28c137ac55a2f6e9551276"
   dependencies:
     corelogger reharik/core_logger
     dagon reharik/dagon
-    eventstore-node "^0.0.29"
     extend "^3.0.0"
-    ges-eventsourcing reharik/ges-eventsourcing#eventstore_node
     invariant "^2.1.0"
 
 micromatch@^2.1.5:
@@ -1907,17 +1905,17 @@ ramda-fantasy@^0.6.1:
   dependencies:
     ramda ">=0.15.0"
 
-ramda@>=0.15.0, ramda@^0.23.0:
-  version "0.23.0"
-  resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.23.0.tgz#ccd13fff73497a93974e3e86327bfd87bd6e8e2b"
+ramda@>=0.15.0, ramda@^0.22.1:
+  version "0.22.1"
+  resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.22.1.tgz#031da0c3df417c5b33c96234757eb37033f36a0e"
 
 ramda@^0.18.0:
   version "0.18.0"
   resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.18.0.tgz#c6e3c5d4b9ab1f7906727fdeeb039152a85d4db3"
 
-ramda@^0.22.1:
-  version "0.22.1"
-  resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.22.1.tgz#031da0c3df417c5b33c96234757eb37033f36a0e"
+ramda@^0.23.0:
+  version "0.23.0"
+  resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.23.0.tgz#ccd13fff73497a93974e3e86327bfd87bd6e8e2b"
 
 randomatic@^1.1.3:
   version "1.1.6"
@@ -2090,13 +2088,9 @@ safe-buffer@^5.0.1:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/safe-buffer/-/safe-buffer-5.0.1.tgz#d263ca54696cd8a306b5ca6551e92de57918fbe7"
 
-semver@4.3.2:
+semver@4.3.2, semver@^4.1.0:
   version "4.3.2"
   resolved "https://registry.yarnpkg.com/semver/-/semver-4.3.2.tgz#c7a07158a80bedd052355b770d82d6640f803be7"
-
-semver@^4.1.0:
-  version "4.3.6"
-  resolved "https://registry.yarnpkg.com/semver/-/semver-4.3.6.tgz#300bc6e0e86374f7ba61068b5b1ecd57fc6532da"
 
 semver@^5.0.3, semver@^5.1.0, semver@^5.3.0, semver@~5.3.0:
   version "5.3.0"
