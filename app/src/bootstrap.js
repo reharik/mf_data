@@ -5,8 +5,8 @@ module.exports = function(config,
                           Promise,
                           uuid, 
                           eventstore, 
-                          messageBinders,
                           migration,
+                          invariant,
                           bcryptjs) {
   return function () {
     var createPassword = function (_password) {
@@ -20,44 +20,7 @@ module.exports = function(config,
       }
     };
 
-    // var setupMetaData = function () {
-    //   console.log('step1');
-    //   var auth = {
-    //     username: eventstore.gesClientHelpers.systemUsers.admin,
-    //     password: eventstore.gesClientHelpers.systemUsers.defaultAdminPassword
-    //   };
-    //   var metadata = eventstore.gesClientHelpers.createStreamMetadata({
-    //     acl: {
-    //       readRoles: eventstore.gesClientHelpers.systemRoles.all
-    //     }
-    //   });
-    //   return {
-    //     expectedMetastreamVersion: -2,
-    //     metadata: metadata,
-    //     auth: auth
-    //   };
-    // };
-
-    // var sendMetadata = function (val) {
-    //   var setData = setupMetaData();
-    //   console.log('step2');
-    //   return new Promise(function (resolve, reject) {
-    //     setTimeout(function() {
-    //     eventstore.gesClientHelpers.setStreamMetadata('$all', setData, function (error, data) {
-    //       if(error){
-    //         reject(error);
-    //       }
-    //       else {
-    //         resolve(data);
-    //       }
-    //     });
-    //     }, 1000)
-    //   });
-    // };
-
-    var processCommands = async function (x, commandName) {
-      const command = messageBinders.commands[commandName + 'Command'](x);
-
+    var processCommands = async function (command, commandName) {
       await eventstore.commandPoster(
         command,
         commandName,
@@ -67,15 +30,17 @@ module.exports = function(config,
     var populateES = async function () {
       const clients = addClients();
       for (let x of clients) {
-        await processCommands(x, 'addClient');
+        let command = addClient(x);
+        await processCommands(command, 'addClient');
       }
 
       const trainers = hireTrainers();
-      trainers[1].clients = [clients[0].id,clients[1].id,clients[2].id];
-      trainers[2].clients = [clients[2].id,clients[3].id,clients[4].id];
+      trainers[1].clients = [clients[0].id, clients[1].id, clients[2].id];
+      trainers[2].clients = [clients[2].id, clients[3].id, clients[4].id];
 
       for (let x of trainers) {
-        await processCommands(x, 'hireTrainer');
+        let command = hireTrainer(x);
+        await processCommands(command, 'hireTrainer');
       }
     };
 
@@ -127,27 +92,28 @@ module.exports = function(config,
       };
 
       const three =
-      {
-        birthDate: new Date('1/5/1972'),
-        color: '#4286f4',
-        contact: {
-          firstName: 'Amahl',
-          lastName: 'Harik',
-          email: 'trainer',
-          mobilePhone: '666.666.6666',
-          secondaryPhone: '777.777.7777',
-          address: {
-            street1: '1 Richmond Square',
-            street2: 'a',
-            city: 'Providence',
-            state: 'RI',
-            zipCode: '02906'          }
-        },
-        credentials: {
-          password: createPassword('234234'),
-          role: 'trainer'
-        }
-      };
+        {
+          birthDate: new Date('1/5/1972'),
+          color: '#4286f4',
+          contact: {
+            firstName: 'Amahl',
+            lastName: 'Harik',
+            email: 'trainer',
+            mobilePhone: '666.666.6666',
+            secondaryPhone: '777.777.7777',
+            address: {
+              street1: '1 Richmond Square',
+              street2: 'a',
+              city: 'Providence',
+              state: 'RI',
+              zipCode: '02906'
+            }
+          },
+          credentials: {
+            password: createPassword('234234'),
+            role: 'trainer'
+          }
+        };
       return [one, two, three];
     };
 
@@ -268,7 +234,26 @@ module.exports = function(config,
       // await sendMetadata();
       console.log('step3');
       await populateES();
-return;
+      return;
+    };
+
+    const addClient = function (client) {
+      invariant(client.contact.firstName, 'addClient requires that you pass the clients first name');
+      invariant(client.contact.lastName, 'addClient requires that you pass the clients last name');
+      invariant(client.contact.email, 'addClient requires that you pass the clients email');
+      invariant(client.contact.mobilePhone, 'addClient requires that you pass the clients mobilePhone');
+      invariant(client.startDate, 'addClient requires that you pass the clients startDate');
+      return client
+    };
+
+    const hireTrainer = function (trainer) {
+      invariant(trainer.contact.firstName, 'hireTrainer requires that you pass the trainers first name');
+      invariant(trainer.contact.lastName, 'hireTrainer requires that you pass the trainers last name');
+      invariant(trainer.contact.email, 'hireTrainer requires that you pass the trainers email');
+      invariant(trainer.contact.mobilePhone, 'hireTrainer requires that you pass the trainers mobilePhone');
+      invariant(trainer.credentials.password, 'hireTrainer requires that you pass the trainers password');
+      invariant(trainer.credentials.role, 'hireTrainer requires that you pass the trainers role');
+      return trainer;
     };
 
     begin();
