@@ -14,7 +14,6 @@ CREATE TABLE "lastProcessedPosition"
 (
   id uuid NOT NULL,
   "commitPosition" bigint,
-  "preparePosition" bigint,
   "handlerType" text
 )
 WITH (
@@ -80,23 +79,7 @@ WITH (
 ALTER TABLE "trainerLoggedIn"
   OWNER TO methodfitness;
 
--- Table: "trainerSummary"
-
-
-CREATE TABLE "trainerSummary"
-(
-  id uuid NOT NULL,
-  document jsonb
-)
-WITH (
-  OIDS=FALSE
-);
-ALTER TABLE "trainerSummary"
-  OWNER TO methodfitness;
-
 -- Table: "user"
-
-
 CREATE TABLE "user"
 (
   id uuid NOT NULL,
