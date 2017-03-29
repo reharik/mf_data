@@ -15,7 +15,7 @@ CREATE TABLE "lastProcessedPosition"
   id uuid NOT NULL,
   "commitPosition" bigint,
   "preparePosition" bigint,
-  "handlerType" text
+  "handlerType" text UNIQUE
 )
 WITH (
   OIDS=FALSE
