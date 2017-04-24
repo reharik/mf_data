@@ -96,7 +96,6 @@ ALTER TABLE "trainerSummary"
 
 -- Table: "user"
 
-
 CREATE TABLE "user"
 (
   id uuid NOT NULL,
@@ -111,7 +110,6 @@ ALTER TABLE "user"
 
 -- Table: "appointment"
 
-
 CREATE TABLE "appointment"
 (
   id uuid NOT NULL,
@@ -124,4 +122,22 @@ WITH (
 );
 
 ALTER TABLE "appointment"
+  OWNER TO methodfitness;
+
+
+-- Table: "session"
+
+CREATE TABLE "session"
+(
+  id uuid NOT NULL,
+  used bool,
+  client uuid NOT NULL,
+  type varchar(50), NOT NULL,
+  document jsonb
+)
+WITH (
+  OIDS=FALSE
+);
+
+ALTER TABLE "session"
   OWNER TO methodfitness;
