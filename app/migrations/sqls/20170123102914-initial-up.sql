@@ -132,7 +132,7 @@ CREATE TABLE "session"
   id uuid NOT NULL,
   used bool,
   client uuid NOT NULL,
-  type varchar(50), NOT NULL,
+  type varchar(50) NOT NULL,
   document jsonb
 )
 WITH (
@@ -140,4 +140,19 @@ WITH (
 );
 
 ALTER TABLE "session"
+  OWNER TO methodfitness;
+
+-- Table: "purchases"
+
+CREATE TABLE "purchases"
+(
+  id uuid NOT NULL,
+  client uuid NOT NULL,
+  document jsonb
+)
+WITH (
+  OIDS=FALSE
+);
+
+ALTER TABLE "purchases"
   OWNER TO methodfitness;
