@@ -10,6 +10,8 @@ COMMENT ON SCHEMA public
 -- Table: "lastProcessedPosition"
 
 
+DROP TABLE IF EXISTS "lastProcessedPosition";
+
 CREATE TABLE "lastProcessedPosition"
 (
   id uuid NOT NULL,
@@ -26,6 +28,8 @@ ALTER TABLE "lastProcessedPosition"
 -- Table: states
 
 
+DROP TABLE IF EXISTS "states";
+
 CREATE TABLE states
 (
   id uuid NOT NULL,
@@ -39,6 +43,7 @@ ALTER TABLE states
 
 -- Table: trainer
 
+DROP TABLE IF EXISTS "trainer";
 CREATE TABLE trainer
 (
   id uuid NOT NULL,
@@ -53,6 +58,7 @@ ALTER TABLE trainer
 
 -- Table: client
 
+DROP TABLE IF EXISTS "client";
 
 CREATE TABLE client
 (
@@ -68,6 +74,7 @@ ALTER TABLE client
 
 -- Table: "trainerLoggedIn"
 
+DROP TABLE IF EXISTS "trainerLoggedIn";
 
 CREATE TABLE "trainerLoggedIn"
 (
@@ -80,21 +87,9 @@ WITH (
 ALTER TABLE "trainerLoggedIn"
   OWNER TO methodfitness;
 
--- Table: "trainerSummary"
-
-
-CREATE TABLE "trainerSummary"
-(
-  id uuid NOT NULL,
-  document jsonb
-)
-WITH (
-  OIDS=FALSE
-);
-ALTER TABLE "trainerSummary"
-  OWNER TO methodfitness;
-
 -- Table: "user"
+
+DROP TABLE IF EXISTS "user";
 
 CREATE TABLE "user"
 (
@@ -109,6 +104,8 @@ ALTER TABLE "user"
   OWNER TO methodfitness;
 
 -- Table: "appointment"
+
+DROP TABLE IF EXISTS "appointment";
 
 CREATE TABLE "appointment"
 (
@@ -126,6 +123,7 @@ ALTER TABLE "appointment"
 
 
 -- Table: "session"
+DROP TABLE IF EXISTS "session";
 
 CREATE TABLE "session"
 (
@@ -142,9 +140,11 @@ WITH (
 ALTER TABLE "session"
   OWNER TO methodfitness;
 
--- Table: "purchases"
+-- Table: "purchase"
 
-CREATE TABLE "purchases"
+DROP TABLE IF EXISTS "purchase";
+
+CREATE TABLE "purchase"
 (
   id uuid NOT NULL,
   client uuid NOT NULL,
@@ -154,5 +154,5 @@ WITH (
   OIDS=FALSE
 );
 
-ALTER TABLE "purchases"
+ALTER TABLE "purchase"
   OWNER TO methodfitness;
