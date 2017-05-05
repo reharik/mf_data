@@ -14,7 +14,7 @@
           "database": "methodfitness",
           "host"     : "postgres",
           "password": "password",
-          "port": "5432",
+          "port": "5400",
           "max": "10",
           "idleTimeoutMillis": "30000"
         }

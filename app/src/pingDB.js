@@ -1,7 +1,9 @@
 module.exports = function(pg, config, promiseretry) {
   var ping = function () {
     const configs = config.configs.children.postgres.config;
-
+console.log(`==========configs=========`);
+console.log(configs);
+console.log(`==========END configs=========`);
     var client = new pg.Client(configs);
     return new Promise(function (res, rej) {
       // connect to our database
